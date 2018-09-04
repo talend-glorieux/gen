@@ -30,19 +30,19 @@ type testCase struct {
 
 func TestParseFlags(t *testing.T) {
 	cases := []testCase{
-		testCase{
+		{
 			name:   "Empty",
 			flags:  []string{},
 			result: make(map[string]string),
 			err:    nil,
 		},
-		testCase{
+		{
 			name:   "One flag",
 			flags:  []string{"--test"},
 			result: map[string]string{"test": setFlag},
 			err:    nil,
 		},
-		testCase{
+		{
 			name:  "Multi-flags",
 			flags: []string{"--test=testArg", "-test2", "--test3", "testArg3"},
 			result: map[string]string{
@@ -52,7 +52,7 @@ func TestParseFlags(t *testing.T) {
 			},
 			err: nil,
 		},
-		testCase{
+		{
 			name:   "Error flags",
 			flags:  []string{"test", "-test2", "--test3", "testArg3"},
 			result: nil,
